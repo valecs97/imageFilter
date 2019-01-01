@@ -1,0 +1,34 @@
+The algorithm used is a conventional blur filter.
+It simple calculated the pixel new color by averaging the color of the side pixels.
+
+float rt = 0, gt = 0, bt = 0;
+for (int mi = -sidePixels; mi <= sidePixels; mi++) {
+    int mindex = Math.min(Math.max(mi + index, 0), mSource.length - 1);
+    int pixel = mSource[mindex];
+    rt += (float) ((pixel & 0x00ff0000) >> 16) / mBlurWidth;
+    gt += (float) ((pixel & 0x0000ff00) >> 8) / mBlurWidth;
+    bt += (float) ((pixel & 0x000000ff) >> 0) / mBlurWidth;
+}
+int dpixel = (0xff000000)
+| (((int) rt) << 16)
+| (((int) gt) << 8)
+| (((int) bt) << 0);
+mDestination[index] = dpixel;
+
+Synchronization used for the first part are a bunch of futuretasks that
+are being divided until they reach a Threshold, moment in which it blurs
+the spplited image.
+
+For the second part I used MPI which proved to be very disadvantageous.
+It still uses futuretasks but the hard work is done by the MPI worker.
+
+For OpenCL I used something similar to MPI, now the work is done by the GPU.
+
+Performance measurements:
+If the threshold is set appropriately it will blur the image in 2-4 seconds.
+
+Threads : best 1,8 seconds
+MPI : best 2,2 seconds
+OpenCL : best 0,4 seconds
+
+Results : GPU workload is much faster than anything.

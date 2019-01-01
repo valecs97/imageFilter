@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ImageFilterThreads:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ImageFilterThreads_jar</output-path>
+    <root id="archive" name="ImageFilterMaven.jar">
+      <element id="module-output" name="ImageFilterMaven" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jocl/jocl/2.0.0/jocl-2.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/mpj/lib/mpi.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/mpj/lib/mpj.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
