@@ -85,7 +85,7 @@ public class MPIBlur implements Callable<Void>{
 
     private static void computeDirectly(int mStart, int mLength, int[] mSource,int[] mDestination) {
         // Processing window size, should be odd.
-        int mBlurWidth = 15;
+        int mBlurWidth = 185;
         int sidePixels = (mBlurWidth - 1) / 2;
         ThreadBlur.computeDirectly(sidePixels, mStart, mLength, mSource, mBlurWidth, mDestination);
     }

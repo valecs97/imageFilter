@@ -7,7 +7,7 @@ public class ThreadBlur implements Callable<Void> {
     private int mStart;
     private int mLength;
     private int[] mDestination;
-    private int mBlurWidth = 15; // Processing window size, should be odd.
+    private int mBlurWidth = 185; // Processing window size, should be odd.
     protected static int sThreshold = 100000000;
     private static int current = 0;
 

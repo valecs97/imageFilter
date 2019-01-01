@@ -14,7 +14,7 @@ public class OpenCL {
                     "             __global const int *vars)" +
                     "{"+
                     "   int gid = get_global_id(0);"+
-                    "   int mBlurWidth = 15;" +
+                    "   int mBlurWidth = 185;" +
                     "   int mStart = vars[1];" +
                     "   int index = mStart + gid;" +
                     "   int sidePixels = (mBlurWidth - 1) /2;" +

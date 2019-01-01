@@ -9,17 +9,12 @@ import java.util.concurrent.FutureTask;
 
 public class Main {
 
-    private static String fileName;
+    private static String fileName = "spongebob.png";
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
-        if (args.length != 1) {
-            System.out.println("Please speicify the image location/name !");
-            return;
-        }
-        fileName = args[0];
         ThreadColdStart();
         //MPIColdStart(args);
-        //OpenCLColdStart();
+        OpenCLColdStart();
     }
 
     private static void OpenCLColdStart() throws ExecutionException, InterruptedException, IOException {
@@ -86,7 +81,6 @@ public class Main {
     private static BufferedImage blueOpenCL(BufferedImage srcImage) throws ExecutionException, InterruptedException {
         int w = srcImage.getWidth();
         int h = srcImage.getHeight();
-
         int[] src = srcImage.getRGB(0, 0, w, h, null, 0, w);
         int[] dst = new int[src.length];
 
@@ -109,7 +103,7 @@ public class Main {
                 " milliseconds.");
 
         BufferedImage dstImage =
-                new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+                new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         dstImage.setRGB(0, 0, w, h, dst, 0, w);
 
         return dstImage;
@@ -139,7 +133,7 @@ public class Main {
                 " milliseconds.");
 
         BufferedImage dstImage =
-                new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+                new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         dstImage.setRGB(0, 0, w, h, dst, 0, w);
 
         return dstImage;
@@ -175,7 +169,7 @@ public class Main {
                 " milliseconds.");
 
         BufferedImage dstImage =
-                new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+                new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         dstImage.setRGB(0, 0, w, h, dst, 0, w);
 
         return dstImage;
