@@ -9,10 +9,10 @@ import java.util.concurrent.FutureTask;
 
 public class Main {
 
-    private static String fileName = "spongebob.png";
+    private static String fileName = "image.jpg";
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
-        ThreadColdStart();
+        //ThreadColdStart();
         //MPIColdStart(args);
         OpenCLColdStart();
     }
